@@ -174,12 +174,12 @@ function enviarEmail($nome, $email, $assunto, $mensagem){
 function pesquisarPessoaEmail($conexao,$array){
         try {
 
-        $query = $conexao->prepare("select * from pessoa where md5(email) = ?");
+        $query = $conexao->prepare("select * from usuarios where md5(email) = ?");
         if($query->execute($array)){
-            $pessoa = $query->fetch(); //coloca os dados num array $pessoa
-          if ($pessoa)
+            $usuario = $query->fetch(); //coloca os dados num array $pessoa
+          if ($usuario)
             {  
-                return $pessoa;
+                return $usuario;
             }
         else
             {
@@ -197,7 +197,7 @@ function pesquisarPessoaEmail($conexao,$array){
  function alterarStatustrue($conexao, $array){
         try {
             session_start();
-            $query = $conexao->prepare("update pessoa set status = true where codpessoa = ?");
+            $query = $conexao->prepare("update usuarios set status = true where idusuarios = ?");
             $resultado = $query->execute($array);   
            // $_SESSION['nome']=$array[0];         
             return $resultado;
