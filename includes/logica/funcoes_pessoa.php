@@ -167,7 +167,39 @@ function enviarEmail($nome, $email, $assunto, $mensagem){
     }
 } 
 
-function validaEmail($conexao, $array){
-    
-}
+function pesquisarPessoaEmail($conexao,$array){
+        try {
+
+        $query = $conexao->prepare("select * from pessoa where md5(email) = ?");
+        if($query->execute($array)){
+            $pessoa = $query->fetch(); //coloca os dados num array $pessoa
+          if ($pessoa)
+            {  
+                return $pessoa;
+            }
+        else
+            {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+         }catch(PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+      }  
+    }
+
+ function alterarStatustrue($conexao, $array){
+        try {
+            session_start();
+            $query = $conexao->prepare("update pessoa set status = true where codpessoa = ?");
+            $resultado = $query->execute($array);   
+           // $_SESSION['nome']=$array[0];         
+            return $resultado;
+        }catch(PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
    ?>
