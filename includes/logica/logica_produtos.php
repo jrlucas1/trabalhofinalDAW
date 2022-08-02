@@ -8,9 +8,7 @@
         $quantidade = $_POST['quantidade'];
         $idcategoria = $_POST['categoria'];
         $array = array($nome, $desc, $quantidade, $idcategoria);
-        
-        print(var_dump($array));
-        sleep(5);
+    
         $resultado = inserirProduto($conexao, $array);
         header('location:../../cadastrarProduto.php');
     }

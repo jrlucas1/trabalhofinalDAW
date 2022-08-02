@@ -25,6 +25,7 @@
           unset($_SESSION['msg']);
         }
         ?>
+        <a href="cadastrarPessoa.php"> Novo Usuário? </a>
     </div>
     </section>
 </main>

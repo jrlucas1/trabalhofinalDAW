@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("funcoes_pessoa.php");
+include_once('includes/logica/funcoes_pessoa.php');
+include_once('includes/logica/conecta.php');
 if($_GET['h']){
 	$h=$_GET['h'];
    	$_SESSION["msg"]=''; 
@@ -13,7 +14,7 @@ if($_GET['h']){
 	if($linha) // Se existir o código ele ira fazer a alteração do status para true no banco de dados;
 	{
 
-		$array=array($linha['codpessoa']);
+		$array=array($linha['idusuarios']);
 
 		$retorno=alterarStatustrue($conexao, $array);
 		

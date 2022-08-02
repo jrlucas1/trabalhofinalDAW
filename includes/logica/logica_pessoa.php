@@ -26,32 +26,31 @@
         if (move_uploaded_file($arquivo_temporario, "../../imagens/$nome_arquivo")) {
                 echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
          }
+        }
         $array = array($nome, $email, $senha, $nome_arquivo);
         $retorno=inserirUsuario($conexao, $array);
 		
 	    if($retorno)
-	    {
-		    $hash=md5($email);
-		    $link="<a href='localhost/exemplo_funcoes_PDO_versao5/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
-		    $mensagem="<tr><td style='padding: 10px 0 10px 0;' align='center' bgcolor='#669999'>";
-            $mensagem.="<img src='cid:logo_ref' style='display: inline; padding: 0 10px 0 10px;' width='10%' />";
+        {
+                $hash=md5($email);
+                $link="<a href='localhost/exemplo_funcoes_PDO_email/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
+                $mensagem="<tr><td style='padding: 10px 0 10px 0;' align='center' bgcolor='#669999'>";
+                $mensagem.="<img src='cid:logo_ref' style='display: inline; padding: 0 10px 0 10px;' width='10%' />";
 
-		    $mensagem.="Email de Confirmação <br>".$link."</td></tr>";
-		    $assunto="Confirme seu cadastro";
+                $mensagem.="Email de Confirmação <br>".$link."</td></tr>";
+                $assunto="Confirme seu cadastro";
 
-		    $retorno= enviarEmail($email,$nome,$mensagem,$assunto);
-	
-		    $_SESSION["msg"].= "Valide o Cadastro no email";
+                $retorno= enviarEmail($nome,$email,$assunto,$mensagem);
+        
+                $_SESSION["msg"]= "Valide o Cadastro no email";
 
-	    }
-	    else
-	    {
-		    $_SESSION["msg"].= 'Erro ao inserir <br>';
-	    }		
-
-}
-
+        }
+        else
+        {
+               $_SESSION["msg"].= 'Erro ao inserir <br>';
+        }
         header('location:../../login.php');
+   
         
 }
 #ENTRAR

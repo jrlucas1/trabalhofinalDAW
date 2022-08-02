@@ -1,8 +1,8 @@
 <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
-    require "PHPMailer/src/PHPMailer.php";
-    require "PHPMailer/src/SMTP.php";
+    require __DIR__.'/PHPMailer/src/PHPMailer.php';
+    require __DIR__.'/PHPMailer/src/SMTP.php';
  
     function inserirUsuario($conexao,$array){
        try {
@@ -70,7 +70,7 @@
 
     function acessarUsuario($conexao,$array){
         try {
-        $query = $conexao->prepare("select * from usuarios where email=? and senha=?");
+        $query = $conexao->prepare("select * from usuarios where email=? and senha=? and status = true");
         if($query->execute($array)){
             $usuario = $query->fetch(); //coloca os dados num array $pessoa
           if ($usuario)
@@ -155,9 +155,8 @@ function enviarEmail($nome, $email, $assunto, $mensagem){
         $mail->CharSet = "utf-8";
 
         // Endereço para resposta
-        if($email_resposta){
-            $mail->addReplyTo($email_resposta);
-       }
+        $mail->addReplyTo($email_resposta);
+      
         // Assunto e Corpo do email
         $mail->Subject = $assunto;
 
