@@ -155,9 +155,9 @@ function enviarEmail($nome, $email, $assunto, $mensagem){
         $mail->CharSet = "utf-8";
 
         // Endereço para resposta
-    
-        $mail->addReplyTo($email_resposta);
-
+        if($email_resposta){
+            $mail->addReplyTo($email_resposta);
+       }
         // Assunto e Corpo do email
         $mail->Subject = $assunto;
 
