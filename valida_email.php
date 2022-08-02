@@ -1,34 +1,30 @@
 <?php
 session_start();
-include("funcoes_pessoas.php");
+include("funcoes_pessoa.php");
 if($_GET['h']){
 	$h=$_GET['h'];
-    $_SESSION["msg"]=''; //inicializa msg
+   	$_SESSION["msg"]=''; 
 	
 
 	$array = array($h);
 
-	$query ="select * from pessoa where md5(email) = ?";
+	$linha=pesquisarPessoaEmail($conexao,$array);
 
-	$linha=ConsultaSelect($query,$array);
-
-	if($linha)
+	if($linha) // Se existir o código ele ira fazer a alteração do status para true no banco de dados;
 	{
 
 		$array=array($linha['codpessoa']);
 
-		$query ="update pessoa set status=true where codpessoa = ?";
-
-		$retorno=fazConsulta($query,$array);
+		$retorno=alterarStatustrue($conexao, $array);
 		
-		if($retorno)
+		if($retorno) // Se fizer essa alteração será enviada está mensagem
 		{
 			
 		
 			   $_SESSION["msg"]= "Cadastro Validado - Entre com seu email e senha";
 
 		}
-		else
+		else // Se não, será enviada essa mensagem.
 		{
 			   $_SESSION["msg"]= 'Problema na validação';
 			   
