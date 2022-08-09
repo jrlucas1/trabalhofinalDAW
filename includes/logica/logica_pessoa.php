@@ -6,7 +6,7 @@
     if(isset($_POST['cadastrar'])){
         $nome = $_POST['nome'];
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
+        $senha= password_hash($_POST['senha'], PASSWORD_DEFAULT);
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name'];
