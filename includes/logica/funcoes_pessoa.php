@@ -70,7 +70,7 @@
 
     function acessarUsuario($conexao,$array){
         try {
-        $query = $conexao->prepare("select * from usuarios where email=? and senha=? and status = true");
+        $query = $conexao->prepare("select * from usuarios where email=? and status = true");
         if($query->execute($array)){
             $usuario = $query->fetch(); //coloca os dados num array $pessoa
           if ($usuario)
