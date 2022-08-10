@@ -109,27 +109,27 @@
 #EDITAR PESSOA
     if(isset($_POST['editar'])){
     
-            $idusuario = $_POST['editar'];
-            $array = array($idusuario);
+            $idusuarios = $_POST['editar'];
+            $array = array($idusuarios);
             $pessoa=buscarUsuario($conexao, $array);
             require_once('../../alterarPessoa.php');
     }    
 #ALTERAR PESSOA
     if(isset($_POST['alterar'])){
     
-            $idusuario = $_POST['idusuario'];
+            $idusuarios = $_POST['alterar'];
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];    
-            $array = array($nome, $email, $senha, $idusuario);
+            $array = array($nome, $email, $senha, $idusuarios);
             alterarUsuario($conexao, $array);
             header('location:../../index.php');
     }
 #DELETAR PESSOA
     if(isset($_POST['deletar'])){
-        $idusuario = $_POST['deletar'];
-        $array=array($idusuario);
-        deletarPessoa($conexao, $array);
+        $idusuarios = $_POST['deletar'];
+        $array=array($idusuarios);
+        deletarUsuario($conexao, $array);
 
         header('Location:../../index.php');
     }
@@ -144,7 +144,7 @@
 #ALTERAR PERFIL
     if(isset($_POST['alterarPerfil'])){
             session_start();
-            $idusuario = $_POST['idusuario'];
+            $idusuario = $_POST['idusuarios'];
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];    
@@ -194,10 +194,12 @@
     }
 
     if (isset($_POST['alterarSenha'])){
-
+        
+        $idusuarios = $_POST['idusuarios'];
         $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-        $array = $senha;
-        session_start();
+        
+        $array = array($senha, $idusuarios);
+        
         $retorno = alterarSenha($conexao, $array);
         if($retorno) // Se fizer essa alteração será enviada está mensagem
 		{

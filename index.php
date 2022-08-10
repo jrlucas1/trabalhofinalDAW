@@ -13,7 +13,8 @@ include_once('includes/logica/conecta.php');
 <body>
 
 <main>
-         <h2> Usuário Logado:  <?php echo $_SESSION['nome']; ?>  </h2>
+         <h2> Usuário Logado:  <?php echo $_SESSION['nome'];?>  </h2>
+
          <h3> Listagem de Usuários </h3>
     <?php
         $usuarios = listarUsuario($conexao);
@@ -31,6 +32,7 @@ include_once('includes/logica/conecta.php');
                     <p>Nome: <?php echo $usuario['nome']; ?></p>
                     <p>Email <?php echo $usuario['email']; ?></p>
                     <p>Imagem: <img src="imagens/<?php echo $usuario['foto'];?>" width='100px' height='100px'/></p>
+                    <p>ID: <?php echo $usuario['idusuarios']; ?></p>
                     
                     <form action="includes/logica/logica_pessoa.php" method="post">
                         <button type="submit" name="editar" value="<?php echo $usuario['idusuarios']; ?>" class="btn btn-primary"> Editar </button>
