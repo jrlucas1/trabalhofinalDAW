@@ -197,12 +197,19 @@ function pesquisarPessoaEmail($conexao,$array){
         try {
             session_start();
             $query = $conexao->prepare("update usuarios set status = true where idusuarios = ?");
-            $resultado = $query->execute($array);   
-           // $_SESSION['nome']=$array[0];         
+            $resultado = $query->execute($array);     
             return $resultado;
         }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
     }
-
+function alterarSenha($conexao, array){
+    try{
+        $query = $conexao->prepare("update usuarios set senha = ?");
+        $resultado = $query->execute($array);
+        return $resultado;
+    }catch(PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
    ?>

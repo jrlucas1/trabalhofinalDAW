@@ -15,7 +15,7 @@
       	<label for="senha">Senha: </label><input type="password" name="senha" id="senha" class="form-control">
       </div>
 
-      <p><button type="submit" id='entrar' name='entrar' value="Entrar" class="btn btn-primary""> Entrar </button></p>      
+      <p><button type="submit" id='entrar' name='entrar' value="Entrar" class="btn btn-primary"> Entrar </button></p>      
     </form> 
     <br>
     <div id="mensagem">
@@ -25,8 +25,9 @@
           unset($_SESSION['msg']);
         }
         ?>
-        <a href="cadastrarPessoa.php"> Novo Usuário? </a>
-    </div>
+      </div><br>
+      <a href="cadastrarPessoa.php"> Novo Usuário? </a><br>
+      <a href="alterarSenha.php"> Esqueceu sua senha? </a>
     </section>
 </main>
 </body>
