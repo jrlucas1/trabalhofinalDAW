@@ -194,6 +194,22 @@
 
     if (isset($_POST['alterarSenha'])){
 
-        $senha = $_POST['senha'];
+        $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+        $array = $senha;
+        session_start();
+        $retorno = alterarSenha($conexao, $array);
+        if($retorno) // Se fizer essa alteração será enviada está mensagem
+		{
+		
+			   $_SESSION["msg"]= "Sua senha foi alterada com sucesso!";
+
+		}
+		else // Se não, será enviada essa mensagem.
+		{
+			   $_SESSION["msg"]= 'Houve um problema a tentar alterar sua senha, tente novamente.';
+			   
+		}
+
+        header('location:../../login.php')
     }
 ?>

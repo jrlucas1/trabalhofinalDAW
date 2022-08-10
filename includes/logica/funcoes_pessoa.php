@@ -205,7 +205,7 @@ function pesquisarPessoaEmail($conexao,$array){
     }
 function alterarSenha($conexao, array){
     try{
-        $query = $conexao->prepare("update usuarios set senha = ?");
+        $query = $conexao->prepare("update usuarios set senha = ? where idusuarios = ?");
         $resultado = $query->execute($array);
         return $resultado;
     }catch(PDOException $e) {
