@@ -33,7 +33,7 @@
 	    if($retorno)
         {
                 $hash=md5($email);
-                $link="<a href='localhost/exemplo_funcoes_PDO_email/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
+                $link="<a href='localhost/atv1daw/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
                 $mensagem="<tr><td style='padding: 10px 0 10px 0;' align='center' bgcolor='#669999'>";
                 $mensagem.="<img src='cid:logo_ref' style='display: inline; padding: 0 10px 0 10px;' width='10%' />";
 
@@ -55,43 +55,50 @@
 }
 #ENTRAR
     if(isset($_POST['entrar'])){
+        
+
+        session_start();
+        $_SESSION['msg'] ='';
+        $email=$_POST["email"];
+        $senha=$_POST["senha"];
+
+
         if (!(empty($email) OR empty($senha))) // testa se os campos do formulário não estão vazios
-	{
-		 
-	    $array = array($email);
-		
-		$resultado = acessarUsuario($conexao, $array);
-		
-		if ($resultado) // testa se retornou uma linha de resultado da tabela pessoa com email e senha válidos
-		{
-		if (password_verify($senha,$resultado['senha']))
-		{
-		$_SESSION["logado"]=true; // armazena TRUE na variável de sessão logado
-		$_SESSION["email"]=$email; // armazena na variável de sessão email o conteúdo do campo email do formulário
-		$_SESSION["codpessoa"]=$resultado['codpessoa'];	
-
-		$_SESSION["nome"]=$resultado['nome'];
-
-		header("Location:index.php"); // direciona para o index
-	     }
-	     else
-	     {
-	     	$_SESSION["msg"]="Usuário ou senha inválidos"; // caso não exista uma linha na tabela pessoa com o email e a senha válidos uma mensagem é armazenada na variável de sessão msg
-			header("Location:login.php"); // o fluxo da aplicação é direcionado novamente parvo formulário de login - onde a variável de sessão contendo a mensagem será exibida
-	     }
-		}
-		else
-		{
-			$_SESSION["msg"]="Usuário ou senha inválidos"; // caso não exista uma linha na tabela pessoa com o email e a senha válidos uma mensagem é armazenada na variável de sessão msg
-			header("Location:login.php"); // o fluxo da aplicação é direcionado novamente parvo formulário de login - onde a variável de sessão contendo a mensagem será exibida
-		}
-	}
-	else // else correspondente ao resultado da função !empty 
-	{
-		$_SESSION["msg"]="Preencha campos email e senha"; // caso contrário, ou seja, os campos do formulário email e senha estejam vazios, a mensagem é armazenada na variável msg
-		header("Location:login.php"); // o fluxo da aplicação é direcionado novamente para o formulário de login - onde a variável de sessão contendo a mensagem será exibida
-	}
-}
+        {
+             
+            $array = array($email);
+    
+            $resultado=acessarUsuario($conexao, $array);
+            if ($resultado) 
+            {
+            if (password_verify($senha,$resultado['senha']))
+            {
+            $_SESSION["logado"]=true; // armazena TRUE na variável de sessão logado
+            $_SESSION["email"]=$email; // armazena na variável de sessão email o conteúdo do campo email do formulário
+            $_SESSION["idusuarios"]=$resultado['idusuarios'];
+            $_SESSION["nome"] = $resultado['nome'];
+            
+            header("Location:../../index.php"); // direciona para o index
+             }
+             else
+             {
+                 $_SESSION["msg"]="Usuário ou senha inválidos"; // caso não exista uma linha na tabela pessoa com o email e a senha válidos uma mensagem é armazenada na variável de sessão msg
+                header("Location:../../login.php"); // o fluxo da aplicação é direcionado novamente parvo formulário de login - onde a variável de sessão contendo a mensagem será exibida
+             }
+            }
+            else
+            {
+                $_SESSION["msg"]="Usuário ou senha inválidos"; // caso não exista uma linha na tabela pessoa com o email e a senha válidos uma mensagem é armazenada na variável de sessão msg
+                header("Location:../../login.php"); // o fluxo da aplicação é direcionado novamente parvo formulário de login - onde a variável de sessão contendo a mensagem será exibida
+            }
+        }
+        else // else correspondente ao resultado da função !empty 
+        {
+            $_SESSION["msg"]="Preencha campos email e senha"; // caso contrário, ou seja, os campos do formulário email e senha estejam vazios, a mensagem é armazenada na variável msg
+            header("Location:../../login.php"); // o fluxo da aplicação é direcionado novamente para o formulário de login - onde a variável de sessão contendo a mensagem será exibida
+        }
+    }
+    
 #SAIR
     if(isset($_POST['sair'])){
             session_start();
@@ -157,6 +164,36 @@
         $mensagem = $_POST['mensagem'];
         
         $resultado = enviarEmail($nome,$email,$assunto,$mensagem);
-}   
+}
 
+    if (isset($_POST['esqueceuSenha'])){
+        $email = $_POST['email'];
+        $retorno = pesquisarPessoaEmail($email);
+        if($retorno)
+        {
+                $hash=md5($email);
+                $link="<a href='localhost/atv1daw/trocaSenha.php?h=".$hash."'> Clique aqui para alterar sua senha </a>";
+
+                $mensagem.="Email para alteração de senha <br>".$link."</td></tr>";
+                $assunto="Confirme seu cadastro";
+
+                $retorno= enviarEmail($nome,$email,$assunto,$mensagem);
+        
+                $_SESSION["msg"]= "Um email com o link para redefinir sua senha foi enviado";
+
+        }
+        else
+        {
+               $_SESSION["msg"].= 'Não existe nenhuma conta com este email';
+        }
+        header('location:../../login.php');
+    
+    
+    $resultado = enviarEmail($nome,$email,$assunto,$mensagem);
+    }
+
+    if (isset($_POST['alterarSenha'])){
+
+        $senha = $_POST['senha'];
+    }
 ?>
