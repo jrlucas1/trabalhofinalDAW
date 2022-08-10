@@ -203,7 +203,7 @@ function pesquisarPessoaEmail($conexao,$array){
             echo 'Error: ' . $e->getMessage();
         }
     }
-function alterarSenha($conexao, array){
+function alterarSenha($conexao, $array){
     try{
         $query = $conexao->prepare("update usuarios set senha = ? where idusuarios = ?");
         $resultado = $query->execute($array);

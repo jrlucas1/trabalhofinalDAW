@@ -9,8 +9,8 @@
 
 <main>
     <section>
-    <form action="logica_pessoa.php" method="post">
-      <p><label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $pessoa['email']; ?>"></p>
+    <form action="includes/logica/logica_pessoa.php" method="post">
+      <p><label for="email">Email: </label><input type="text" name="email" id="email"></p>
       <p> <input type="submit" id='esqueceuSenha' name='esqueceuSenha' value="Enviar">
       </p>        
         </form>

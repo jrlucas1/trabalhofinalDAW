@@ -27,7 +27,7 @@
         ?>
       </div><br>
       <a href="cadastrarPessoa.php"> Novo Usuário? </a><br>
-      <a href="alterarSenha.php"> Esqueceu sua senha? </a>
+      <a href="esqueceuSenha.php"> Esqueceu sua senha? </a>
     </section>
 </main>
 </body>

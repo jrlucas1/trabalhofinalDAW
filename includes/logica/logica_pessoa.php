@@ -167,8 +167,9 @@
 }
 
     if (isset($_POST['esqueceuSenha'])){
+        
         $email = $_POST['email'];
-        $retorno = pesquisarPessoaEmail($email);
+        $retorno = pesquisarPessoaEmail($conexao, md5($email));
         if($retorno)
         {
                 $hash=md5($email);
@@ -210,6 +211,6 @@
 			   
 		}
 
-        header('location:../../login.php')
+        header('location:../../login.php');
     }
 ?>
