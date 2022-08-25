@@ -215,4 +215,35 @@
 
         header('location:../../login.php');
     }
+
+    #ESQUECEU A SENHA
+    if(isset($_POST['esqueciSenha'])){
+    
+        $email =  $_POST['email'];
+        $chave = sha1(uniqid( mt_rand(), true));
+
+        $array1= array(md5($email));
+        // vai pesquisar a pessoa pelo email para ver se existe no banco de dados;
+        $resultado = pesquisarPessoaEmail($conexao, $array1);
+
+        
+        if($resultado){
+        $array = array($email, $chave);
+        $teste = esqueciSenha($conexao, $array);     
+    
+        $link="<a href='localhost/atv1daw/recuperar.php?email=".$email."&conf=".$chave."'> Clique aqui para alterar sua senha </a>";
+    
+        $mensagem="Email para alteração de senha <br>".$link."</td></tr>";
+        $assunto="Resetar a sua senha";
+        $nome = "usuario";
+        $retorno= enviarEmail($nome,$email,$assunto,$mensagem);
+            
+         $_SESSION["msg"]= "Um email com o link para redefinir sua senha foi enviado";
+         header('location:../../login.php');    
+         }else{
+         $_SESSION["msg"]= "Email não existe na base de dados, verifique se digitou corretamente";
+         header('location:../../login.php');
+    }
+}
+
 ?>

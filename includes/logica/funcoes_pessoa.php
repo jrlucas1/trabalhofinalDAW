@@ -212,4 +212,47 @@ function alterarSenha($conexao, $array){
         echo 'Error: ' . $e->getMessage();
     }
 }
+function esqueciSenha($conexao, $array){
+    try{
+       $query = $conexao->prepare("INSERT into recuperacao (email, chave) values (?, ?)");
+       $resultado = $query->execute($array);
+       return $resultado;
+     }catch(PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+}
+function alterarPassword($conexao, $array){
+    try{
+        $query = $conexao->prepare("update usuarios set senha = ? where email=?");
+        $resultado = $query->execute($array);
+        return $resultado;
+    }catch(PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+function checkConf($conexao,$array){
+    try {
+         $query = $conexao->prepare("SELECT COUNT(*) FROM recuperacao WHERE email=? and chave=?");
+
+         $resultado = $query->execute($array);
+         
+         return $resultado;
+         
+     }catch(PDOException $e) {
+         echo 'Error: ' . $e->getMessage();
+     }
+
+ }
+
+ function deleteConf($conexao, $array){
+     try{
+        $query = $conexao->prepare("DELETE FROM recuperacao WHERE email = ? AND chave = ?");
+
+        $resultado = $query->execute($array);
+        
+        return $resultado;
+     } catch(PDOException $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+ }
    ?>
