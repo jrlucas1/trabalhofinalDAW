@@ -6,7 +6,7 @@
  
     function inserirUsuario($conexao,$array){
        try {
-            $query = $conexao->prepare("insert into usuarios (nome, email, senha, foto) values (?, ?, ?, ?)");
+            $query = $conexao->prepare("insert into pessoas (email, senha, nome, idade, foto) values (?, ?, ?, ?)");
 
             $resultado = $query->execute($array);
             
@@ -21,7 +21,7 @@
 
     function alterarUsuario($conexao, $array){
         try {
-            $query = $conexao->prepare("update usuarios set nome= ?, email = ?, senha= ? where idusuarios = ?");
+            $query = $conexao->prepare("update pessoas set nome= ?, email = ?, senha= ? where id = ?");
             $resultado = $query->execute($array);   
             return $resultado;
         }catch(PDOException $e) {
@@ -32,7 +32,7 @@
 
     function deletarUsuario($conexao, $array){
         try {
-            $query = $conexao->prepare("delete from usuario where idusuarios = ?");
+            $query = $conexao->prepare("delete from pessoas where id = ?");
             $resultado = $query->execute($array);   
              return $resultado;
         }catch(PDOException $e) {
@@ -43,7 +43,7 @@
  
     function listarUsuario($conexao){
       try {
-        $query = $conexao->prepare("select * from usuarios");      
+        $query = $conexao->prepare("select * from pessoas");      
         $query->execute();
         $usuarios = $query->fetchAll();
         return $usuarios;
@@ -55,7 +55,7 @@
 
      function buscarUsuario($conexao,$array){
         try {
-        $query = $conexao->prepare("select * from usuarios where idusuarios=?");
+        $query = $conexao->prepare("select * from pessoas where id=?");
         if($query->execute($array)){
             $usuarios = $query->fetch(); //coloca os dados num array $usuario
             return $usuarios;
@@ -70,7 +70,7 @@
 
     function acessarUsuario($conexao,$array){
         try {
-        $query = $conexao->prepare("select * from usuarios where email=? and status = true");
+        $query = $conexao->prepare("select * from pessoas where email=? and status = true");
         if($query->execute($array)){
             $usuario = $query->fetch(); //coloca os dados num array $pessoa
           if ($usuario)
@@ -92,7 +92,7 @@
 
  function pesquisarUsuario($conexao,$array){
         try {
-        $query = $conexao->prepare("select * from usuarios where upper(nome) like ?");
+        $query = $conexao->prepare("select * from pessoas where upper(nome) like ?");
         if($query->execute($array)){
             $usuarios = $query->fetchAll(); //coloca os dados num array $pessoa
           if ($usuarios)
@@ -173,7 +173,7 @@ function enviarEmail($nome, $email, $assunto, $mensagem){
 function pesquisarPessoaEmail($conexao,$array){
         try {
 
-        $query = $conexao->prepare("select * from usuarios where md5(email) = ?");
+        $query = $conexao->prepare("select * from pessoas where md5(email) = ?");
         if($query->execute($array)){
             $usuario = $query->fetch(); //coloca os dados num array $pessoa
           if ($usuario)
@@ -196,7 +196,7 @@ function pesquisarPessoaEmail($conexao,$array){
  function alterarStatustrue($conexao, $array){
         try {
             session_start();
-            $query = $conexao->prepare("update usuarios set status = true where idusuarios = ?");
+            $query = $conexao->prepare("update pessoas set status = true where id = ?");
             $resultado = $query->execute($array);     
             return $resultado;
         }catch(PDOException $e) {
@@ -205,7 +205,7 @@ function pesquisarPessoaEmail($conexao,$array){
     }
 function alterarSenha($conexao, $array){
     try{
-        $query = $conexao->prepare("update usuarios set senha = ? where idusuarios = ?");
+        $query = $conexao->prepare("update pessoas set senha = ? where id = ?");
         $resultado = $query->execute($array);
         return $resultado;
     }catch(PDOException $e) {
@@ -223,7 +223,7 @@ function esqueciSenha($conexao, $array){
 }
 function alterarPassword($conexao, $array){
     try{
-        $query = $conexao->prepare("update usuarios set senha = ? where email=?");
+        $query = $conexao->prepare("update pessoas set senha = ? where email=?");
         $resultado = $query->execute($array);
         return $resultado;
     }catch(PDOException $e) {

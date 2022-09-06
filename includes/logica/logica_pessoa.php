@@ -4,9 +4,10 @@
     require_once('config_upload.php'); // arquivo que contém as variáveis de configuração
 #CADASTRO PESSOA
     if(isset($_POST['cadastrar'])){
-        $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha= password_hash($_POST['senha'], PASSWORD_DEFAULT);
+        $nome = $_POST['nome'];
+        $idade = $_POST['idade'];
         $nome_arquivo=$_FILES['imagem']['name'];  
         $tamanho_arquivo=$_FILES['imagem']['size']; 
         $arquivo_temporario=$_FILES['imagem']['tmp_name'];
@@ -27,13 +28,13 @@
                 echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
          }
         }
-        $array = array($nome, $email, $senha, $nome_arquivo);
+        $array = array($email, $senha, $nome, $idade, $nome_arquivo);
         $retorno=inserirUsuario($conexao, $array);
 		
 	    if($retorno)
         {
                 $hash=md5($email);
-                $link="<a href='localhost/atv1daw/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
+                $link="<a href='localhost/trabalaho/valida_email.php?h=".$hash."'> Clique aqui para confirmar seu cadastro </a>";
                 $mensagem="<tr><td style='padding: 10px 0 10px 0;' align='center' bgcolor='#669999'>";
                 $mensagem.="<img src='cid:logo_ref' style='display: inline; padding: 0 10px 0 10px;' width='10%' />";
 
@@ -75,7 +76,7 @@
             {
             $_SESSION["logado"]=true; // armazena TRUE na variável de sessão logado
             $_SESSION["email"]=$email; // armazena na variável de sessão email o conteúdo do campo email do formulário
-            $_SESSION["idusuarios"]=$resultado['idusuarios'];
+            $_SESSION["id"]=$resultado['id'];
             $_SESSION["nome"] = $resultado['nome'];
             
             header("Location:../../index.php"); // direciona para o index
@@ -109,26 +110,26 @@
 #EDITAR PESSOA
     if(isset($_POST['editar'])){
     
-            $idusuarios = $_POST['editar'];
-            $array = array($idusuarios);
+            $id = $_POST['editar'];
+            $array = array($id);
             $pessoa=buscarUsuario($conexao, $array);
             require_once('../../alterarPessoa.php');
     }    
 #ALTERAR PESSOA
     if(isset($_POST['alterar'])){
     
-            $idusuarios = $_POST['alterar'];
+            $id = $_POST['alterar'];
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];    
-            $array = array($nome, $email, $senha, $idusuarios);
+            $array = array($nome, $email, $senha, $id);
             alterarUsuario($conexao, $array);
             header('location:../../index.php');
     }
 #DELETAR PESSOA
     if(isset($_POST['deletar'])){
-        $idusuarios = $_POST['deletar'];
-        $array=array($idusuarios);
+        $id = $_POST['deletar'];
+        $array=array($id);
         deletarUsuario($conexao, $array);
 
         header('Location:../../index.php');
@@ -144,11 +145,11 @@
 #ALTERAR PERFIL
     if(isset($_POST['alterarPerfil'])){
             session_start();
-            $idusuario = $_POST['idusuarios'];
+            $id = $_POST['id'];
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];    
-            $array = array($nome, $email, $senha, $idusuario);
+            $array = array($nome, $email, $senha, $id);
             alterarPessoa($conexao, $array);
             $_SESSION['nome'] = $nome;
             echo $_SESSION['nome'];
@@ -195,10 +196,10 @@
 
     if (isset($_POST['alterarSenha'])){
         
-        $idusuarios = $_POST['idusuarios'];
+        $id = $_POST['id'];
         $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
         
-        $array = array($senha, $idusuarios);
+        $array = array($senha, $id);
         
         $retorno = alterarSenha($conexao, $array);
         if($retorno) // Se fizer essa alteração será enviada está mensagem
