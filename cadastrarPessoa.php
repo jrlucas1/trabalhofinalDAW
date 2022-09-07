@@ -7,11 +7,7 @@
 <main>
     <section>
     <form action="includes/logica/logica_pessoa.php" method="post" enctype="multipart/form-data">
-      
-      <div class="form-group">
-      <label for="nome">Nome: </label><input type="text" name="nome" id="nome" class="form-control">
-      </div>
-
+    
       <div class="form-group" >
       <label for="email">Email: </label><input type="text" name="email" id="email" class="form-control">
       </div>
@@ -19,7 +15,14 @@
       <div class="form-group">
       <label for="senha">Senha: </label> <input type="password" name="senha" id="senha" class="form-control">
       </div>
-      
+
+      <div class="form-group">
+      <label for="nome">Nome: </label><input type="text" name="nome" id="nome" class="form-control">
+      </div>
+
+      <div class="form-group">
+      <label for="idade">Idade: </label> <input type="text" name="idade" id="idade" class="form-control">
+      </div>
       <div class="form-group">
       <label for="imagem">Foto: </label> <input type="file" name="imagem" id="imagem" class="form-control">
       </div>

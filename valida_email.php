@@ -14,7 +14,7 @@ if($_GET['h']){
 	if($linha) // Se existir o código ele ira fazer a alteração do status para true no banco de dados;
 	{
 
-		$array=array($linha['idusuarios']);
+		$array=array($linha['id']);
 
 		$retorno=alterarStatustrue($conexao, $array);
 		
