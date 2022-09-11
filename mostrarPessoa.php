@@ -29,8 +29,8 @@ include_once('includes/componentes/header.php');
             ?>
                 <section>
                     <p>Nome: <?php echo $pessoa['nome']; ?></p>
-                    <p>Email <?php echo $pessoa['email']; ?></p>
-                    <p>CPF: <?php echo $pessoa['cpf']; ?></p>
+                    <p>Email: <?php echo $pessoa['email']; ?></p>
+                    <p>idade: <?php echo $pessoa['idade']; ?></p>
                     <p>Imagem: <img src="../../imagens/<?php echo $pessoa['imagem'];?>" width='100px' height='100px'/></p>
                     
                     <form action="/exemplo_funcoes_PDO/includes/logica/logica_pessoa.php" method="post">
@@ -41,7 +41,7 @@ include_once('includes/componentes/header.php');
                 </section>
             <?php
         }
-           }
+    }
     ?>
 </main>
 <?php require('includes/componentes/footer.php');?>
