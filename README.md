@@ -1,2 +1,2 @@
 # trabalhofinalDAW
-Projeto da disciplina Desenvolvimento de Aplicações para Web
+Projeto final da disciplina Desenvolvimento de Aplicações para Web
