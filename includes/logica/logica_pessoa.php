@@ -60,19 +60,24 @@
 
         session_start();
         $_SESSION['msg'] ='';
-        $email=$_POST["email"];
-        $senha=$_POST["senha"];
+        $email=$_POST['email'];
+        $senha = $_POST['senha'];
+        $array = array($email);
+           
+        echo $senha;
+        
+
 
 
         if (!(empty($email) OR empty($senha))) // testa se os campos do formulário não estão vazios
         {
-             
             $array = array($email);
-    
+           
             $resultado=acessarUsuario($conexao, $array);
+        
             if ($resultado) 
             {
-            if (password_verify($senha,$resultado['senha']))
+            if (password_verify($senha,$resultado['password']))
             {
             $_SESSION["logado"]=true; // armazena TRUE na variável de sessão logado
             $_SESSION["email"]=$email; // armazena na variável de sessão email o conteúdo do campo email do formulário
@@ -93,7 +98,7 @@
                 header("Location:../../login.php"); // o fluxo da aplicação é direcionado novamente parvo formulário de login - onde a variável de sessão contendo a mensagem será exibida
             }
         }
-        else // else correspondente ao resultado da função !empty 
+        else
         {
             $_SESSION["msg"]="Preencha campos email e senha"; // caso contrário, ou seja, os campos do formulário email e senha estejam vazios, a mensagem é armazenada na variável msg
             header("Location:../../login.php"); // o fluxo da aplicação é direcionado novamente para o formulário de login - onde a variável de sessão contendo a mensagem será exibida
@@ -124,6 +129,7 @@
             $senha = $_POST['senha'];    
             $array = array($nome, $email, $senha, $id);
             alterarUsuario($conexao, $array);
+            
             header('location:../../index.php');
     }
 #DELETAR PESSOA
@@ -150,7 +156,8 @@
             $email = $_POST['email'];
             $senha = $_POST['senha'];    
             $array = array($nome, $email, $senha, $id);
-            alterarPessoa($conexao, $array);
+            $resultado = alterarUsuario($conexao, $array);
+            var_dump($resultado);
             $_SESSION['nome'] = $nome;
             echo $_SESSION['nome'];
             header('location:../../alterarPerfil.php');
