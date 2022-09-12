@@ -6,7 +6,7 @@
  
     function inserirUsuario($conexao,$array){
        try {
-            $query = $conexao->prepare("insert into pessoas (email, senha, nome, idade, foto) values (?, ?, ?, ?)");
+            $query = $conexao->prepare("insert into pessoas (email, password, nome, idade, foto) values (?, ?, ?, ?, ?)");
 
             $resultado = $query->execute($array);
             
