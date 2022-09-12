@@ -3,37 +3,28 @@
 <?php
  include_once('includes/componentes/cabecalho.php');
 ?>
-<title>cadastrar produto</title>
+<title>Realizar Postagem</title>
 </head>
 <body>
 
 <main>
     <section>
 </form>
-	<link rel="stylesheet" href="styles.css">
-	<form action="includes/logica/logica_produtos.php" method="POST">
+	<form action="includes/logica/logica_postagem.php" method="POST">
 	
-	<div class="form-group">
-      <label for="nome">Nome: </label><input type="text" name="nome" id="nome" class="form-control">
-      </div>
+	<input type="hidden" name="idpessoa" value="<?php echo $_SESSION['id']?>">
+    <input type="hidden" value="data">
+    <label for="horariosaida">Horario saida: </label><input type="text" name="horariosaida">
+    <label for="horariochegada">Horario chegada: </label><input type="text" name="horariochegada">
+    <label for="preco">Preco: </label><input type="text" name="preco">
+    <label for="idcarro">Carro: </label><input type="text" name="idcarro">
+    <label for="conteudo">Conteudo:</label><input type="text" name="conteudo">
+    <label for="cep">Cep: </label><input type="text"name="cep">
+    <label for="bairro">Bairro: </label><input type="text"name="bairro">
+    <label for="logradouro">Logradouro: </label><input type="text" name="logradouro">
+    <input type="reset" name="botao" value="Limpar">
+    <input type="submit" name="Postar" value="Postar" >
 
-      <div class="form-group" >
-      <label for="descricao">Descricao: </label><input type="text" name="descricao" id="descricao" class="form-control">
-      </div>
-
-      <div class="form-group">
-      <label for="quantidade">Senha: </label> <input type="text" name="quantidade" id="quantidade" class="form-control">
-      </div>
-      
-      <div class="form-group">
-      <label for="categoria">Categoria: </label> 
-      <input type="radio" name="categoria" id="categoria" class="form-control" value="1">Brinquedo
-	  <input type="radio" name="categoria" id="categoria" class="form-control" value = "2">Sapatos
-	  <input type="radio" name="categoria" id="categoria" class="form-control" value="3">Potes
-		</div>
-
-	<input type="reset" name="botao" value="Limpar" class="btn btn-primary">
-	<input type="submit" name="cadastrar" value="Cadastrar" class="btn btn-primary">
 </form>
     </section>
 </main>

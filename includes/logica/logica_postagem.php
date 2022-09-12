@@ -2,7 +2,8 @@
     require_once('conecta.php');
     require_once('funcoes_postagem.php');
 
-    if(isset($_POST['cadastrar'])){
+    if(isset($_POST['postar'])){
+        $idpessoa = $_POST['idpessoa'];
         $data = $_POST['data'];
         $horariosaida = $_POST['horariosaida'];
         $horariochegada = $_POST['horariochegada'];
@@ -12,7 +13,7 @@
         $cep = $_POST['cep'];
         $bairro = $_POST['bairro'];
         $logradouro = $_POST['logradouro'];
-        $array = array($data, $horariosaida, $horariochegada, $preco, $idcarro, $conteudo, $cep, $bairro, $logradouro);
+        $array = array($idpessoa, $data, $horariosaida, $horariochegada, $preco, $idcarro, $conteudo, $cep, $bairro, $logradouro);
     
         $resultado = fazerPostagem($conexao, $array);
         header('location:../../fazerPostagem.php');
