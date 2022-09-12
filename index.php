@@ -32,11 +32,11 @@ include_once('includes/logica/conecta.php');
                     <p>Nome: <?php echo $usuario['nome']; ?></p>
                     <p>Email <?php echo $usuario['email']; ?></p>
                     <p>Imagem: <img src="imagens/<?php echo $usuario['foto'];?>" width='100px' height='100px'/></p>
-                    <p>ID: <?php echo $usuario['idusuarios']; ?></p>
+                    <p>ID: <?php echo $usuario['id']; ?></p>
                     
                     <form action="includes/logica/logica_pessoa.php" method="post">
-                        <button type="submit" name="editar" value="<?php echo $usuario['idusuarios']; ?>" class="btn btn-primary"> Editar </button>
-                        <button type="submit" name="deletar" value="<?php echo $usuario['idusuarios']; ?>" onclick ="return confirma_excluir()" class="btn btn-primary"> Deletar </button> 
+                        <button type="submit" name="editar" value="<?php echo $usuario['id']; ?>" class="btn btn-primary"> Editar </button>
+                        <button type="submit" name="deletar" value="<?php echo $usuario['id']; ?>" onclick ="return confirma_excluir()" class="btn btn-primary"> Deletar </button> 
                     </form>
                     <br><br>                                                          
                 </section>

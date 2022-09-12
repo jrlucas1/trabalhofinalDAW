@@ -33,9 +33,9 @@ include_once('includes/componentes/header.php');
                     <p>idade: <?php echo $pessoa['idade']; ?></p>
                     <p>Imagem: <img src="../../imagens/<?php echo $pessoa['imagem'];?>" width='100px' height='100px'/></p>
                     
-                    <form action="/exemplo_funcoes_PDO/includes/logica/logica_pessoa.php" method="post">
-                        <button type="submit" name="editar" value="<?php echo $pessoa['codpessoa']; ?>"> Editar </button>
-                        <button type="submit" name="deletar" value="<?php echo $pessoa['codpessoa']; ?>" onclick = "return confirma_excluir()"> Deletar </button> 
+                    <form action="/includes/logica/logica_pessoa.php" method="post">
+                        <button type="submit" name="editar" value="<?php echo $pessoa['id']; ?>"> Editar </button>
+                        <button type="submit" name="deletar" value="<?php echo $pessoa['id']; ?>" onclick = "return confirma_excluir()"> Deletar </button> 
                     </form>
                     <br><br>                                                          
                 </section>

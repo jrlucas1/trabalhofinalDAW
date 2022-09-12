@@ -1,6 +1,7 @@
 <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
+    require __DIR__.'/PHPMailer/src/Exception.php';
     require __DIR__.'/PHPMailer/src/PHPMailer.php';
     require __DIR__.'/PHPMailer/src/SMTP.php';
  
@@ -45,8 +46,8 @@
       try {
         $query = $conexao->prepare("select * from pessoas");      
         $query->execute();
-        $usuarios = $query->fetchAll();
-        return $usuarios;
+        $pessoas = $query->fetchAll();
+        return $pessoas;
       }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
       }  
