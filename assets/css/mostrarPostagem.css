@@ -1,0 +1,9 @@
+#post_comments{
+    float: left;
+    clear: both;
+}
+
+#comentarios>p{
+    font-size:  small;
+    clear: both;
+}

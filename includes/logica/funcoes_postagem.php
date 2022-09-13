@@ -3,9 +3,7 @@
     function fazerPostagem ($conexao,$array){
        try {
             $query = $conexao->prepare("insert into postagem (idpessoa, data, horariosaida, horariochegada, preco, idcarro, conteudo, cep, bairro, logradouro) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
             $resultado = $query->execute($array);
-            
             return $resultado;
         }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();

@@ -5,7 +5,6 @@ window.onload = function(){
     
     // evento disparado quando a requisição for completa
             function CarregaLista(event) {
-            const formData = new FormData(document.querySelector('form'))
             const logradouro = document.getElementById("logradouro");
             const bairro = document.getElementById("bairro");
             if(this.status == 200 && this.readyState==4) {

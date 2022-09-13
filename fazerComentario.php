@@ -10,7 +10,7 @@
 <main>
     <section>
 </form>
-	<form action="includes/logica/logica_postagem.php" method="POST">
+	<form action="includes/logica/logica_comentario.php" method="POST">
 	
 	<input type="hidden" name="idpessoa" value="<?php echo $_SESSION['id']?>">
     <input type="hidden" value="idpostagem">

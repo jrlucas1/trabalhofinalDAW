@@ -4,7 +4,7 @@
  include_once('includes/logica/funcoes_comentario.php');
  include_once('includes/logica/conecta.php');
 ?>
-    <link rel="stylesheet" href="assets/css/listarUsuarios.css">
+    <link rel="stylesheet" href="assets/css/mostrarPostagem.css">
     <title>Piracaronas</title>
 </head>
 <body>
@@ -25,13 +25,13 @@
                  $comentarios = listarComentarios($conexao, $array);
             ?>
             
-                <section>
+                <section id="post_comments">
                     <p>Horario de saida: <?php echo $postagem['horariosaida']; ?></p>
                     <p>Horario de chegada: <?php echo $postagem['horariochegada']; ?></p>
                     <p>Preço: <?php echo $postagem['preco']; ?></p>
                     <p>Carro: <?php echo $postagem['idcarro']; ?></p>
                     <p>Conteudo: <?php echo $postagem['conteudo']; ?></p>
-                    <p>CEP: <?php echo $postagem['conteudo']; ?></p>                   
+                    <p>CEP: <?php echo $postagem['cep']; ?></p>                   
                     <p>Bairro: <?php echo $postagem['bairro']; ?></p>
                     <p>Logradouro: <?php echo $postagem['logradouro']; ?></p>
                     <form action="includes/logica/logica_postagem.php" method="post">
@@ -44,15 +44,18 @@
                 foreach($comentarios as $comentario){
 
                 ?>
-
                 <p>Conteudo comment: <?php echo $comentario['conteudo'];?>
-
-                <br>
-                <br>
-
+                <?php } ?>
                 </div>
-            <?php      }
+            <?php      
     } ?>
+                    <form action="includes/logica/logica_comentario.php" method="post">
+                    <input type="hidden" name="idpessoa" value="<?php echo $_SESSION['id']?>"><br>
+                    <input type="hidden" name="idpostagem" value="<?php echo $postagem['id']?>"><br>
+                    <label for="conteudo">Conteudo:</label><input type="text" name="conteudo">    
+                    <button type="submit" name="comentar" value="<?php echo $postagem['id'] ?>">Comentar</button>
+                    </form>
+                    <br> <br>
                 </section>
         <?php
 }

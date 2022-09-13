@@ -6,13 +6,12 @@
        
         $idpessoa = $_POST['idpessoa'];
         $idpostagem = $_POST['idpostagem'];
-        $data = $_POST['data'];
+        $data =  date('Y-m-d');
         $conteudo = $_POST['conteudo'];
 
         $array = array($idpessoa, $idpostagem, $data, $conteudo);
-    
         $resultado = fazerComentario($conexao, $array);
-        header('location:../../fazerComentario.php');
+        header('location:../../mostrarPostagem.php');
     }
 
     if(isset($_POST['editar'])){

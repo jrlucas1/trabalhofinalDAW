@@ -17,6 +17,7 @@
         $array = array($idpessoa, $data, $horariosaida, $horariochegada, $preco, $idcarro, $conteudo, $cep, $bairro, $logradouro);
 
         $resultado = fazerPostagem($conexao, $array);
+   
         header('location:../../fazerPostagem.php');
     }
 
