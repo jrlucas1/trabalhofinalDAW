@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php
- include_once('includes/componentes/cabecalho.php');
 ?>
 <title>Recuperar Senha</title>
 <link rel="stylesheet" href="styles.css">

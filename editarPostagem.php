@@ -12,7 +12,7 @@
 
 <main>
     <section>
-    <form action="logica_pessoa.php" method="post">
+    <form action="logica_postagem.php" method="post">
       <p><label for="horariosaida">Horario saida: </label><input type="text" name="horariosaida" id="horariosaida" value="<?php echo $postagem['horariosaida']; ?>"></p>
       <p><label for="horariochegada">Horario chegada: </label><input type="text" name="horariochegada" id="horariochegada" value="<?php echo $postagem['horariocheada']; ?>"></p>
       <p><label for="preco">Preco: </label><input type="text" name="preco" id="preco" value="<?php echo $postagem['preco']; ?>"></p>

@@ -31,7 +31,7 @@ function listarComentarios($conexao, $array){
       try {
         $query = $conexao->prepare("select * from comentarios where idpostagem = ?");      
         $query->execute($array);
-        $postagens = $query->fetch();
+        $postagens = $query->fetchAll();
         return $postagens;
       }catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
@@ -48,16 +48,14 @@ function updateComentarios($conexao, $array){
         echo 'Error: ' . $e->getMessage();
     }
 }    
-    function deletarPostagem($conexao, $array){
+function deletarComentario($conexao, $array){
     try{
         $query = $conexao->prepare("DELETE FROM comentarios WHERE id=?");
-        $resultado = $query->execute($array)
+        $resultado = $query->execute($array);
 
         return $resultado;
     } catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
     }
 }
-
-   ?>
 ?>

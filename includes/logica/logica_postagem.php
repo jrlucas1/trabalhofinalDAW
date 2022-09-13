@@ -25,7 +25,7 @@
         $id = $_POST['editar'];
         $array = array($id);
         $pessoa=buscarPostagem($conexao, $array);
-        require_once('../../alterarPostagem.php');
+        require_once('../../editarPostagem.php');
 }    
 
     if(isset($_POST['alterar'])){
@@ -49,7 +49,7 @@
         $array=array($id);
         deletarPostagem($conexao, $array);
 
-        header('Location:../../index.php');
+        header('Location:../../mostrarPostagem.php');
 }
     if(isset($_POST['pesquisar'])){
         $nome = $_POST['nome'];
