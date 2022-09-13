@@ -71,7 +71,7 @@ function updatePostagem($conexao, $array){
     function deletarPostagem($conexao, $array){
     try{
         $query = $conexao->prepare("DELETE FROM postagem WHERE id=?");
-        $resultado = $query->execute($array)
+        $resultado = $query->execute($array);
 
         return $resultado;
     } catch(PDOException $e) {
