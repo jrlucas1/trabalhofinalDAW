@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="assets/css/styles.css">
-
+<link rel="stylesheet" href="assets/css/footer.css">
 <nav id="menu">
         <ul id="listaMenu">
                 <li><a href="/trabalho/index.php">Página Inicial</a></li>

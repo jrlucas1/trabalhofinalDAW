@@ -8,7 +8,9 @@
     <title>Piracaronas</title>
 </head>
 <body>
+
 <?php require('includes/componentes/header.php') ?>
+<?php require('includes/componentes/footer.php');?>
 <main>
     <?php
         $email = $_SESSION['email'];
@@ -61,6 +63,5 @@
 }
     ?>
 </main>
-<?php require('includes/componentes/footer.php');?>
 </body>
 </html>

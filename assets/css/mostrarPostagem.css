@@ -1,9 +1,8 @@
 #post_comments{
-    float: left;
-    clear: both;
+    display: grid;
 }
 
 #comentarios>p{
     font-size:  small;
-    clear: both;
+
 }
