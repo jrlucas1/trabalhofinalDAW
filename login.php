@@ -5,19 +5,23 @@
 <?php require('includes/componentes/header.php'); session_start();
 ?>
 <main>
-<h1> Login </h1>
-    <section>
-    <form action="includes/logica/logica_pessoa.php" method="POST" >
-      <div class="form-group"> 
-      	<label for="email">Email: </label><input type="text" name="email" id="email" >
-      </div>
-      <div class="form-group"> 
-      	<label for="senha">Senha: </label><input type="password" name="senha" id="senha">
-      </div>
 
-      <p><button type="submit" id='entrar' name='entrar' value="Entrar" class="btn btn-primary"> Entrar </button></p>      
+
+    <section>
+    <div id="login">
+    <h1> Login </h1>  
+
+    <form action="includes/logica/logica_pessoa.php" method="POST" >
+    <label for="email">Email </label><input type="text" name="email" id="email" > <br>
+    <label for="senha">Senha </label><input type="password" name="senha" id="senha"><br>
+    <button type="submit" id='entrar' name='entrar' value="Entrar" class="btn btn-primary"> Entrar </button>
     </form> 
-    <br>
+ 
+
+    </div>
+    
+    
+    
     <div id="mensagem">
     	<?php
         if(isset($_SESSION['msg'])){
