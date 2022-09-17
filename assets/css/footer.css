@@ -1,9 +1,0 @@
-#listaMenu{
-    display: flex;
-    list-style-type: none;
-    padding: 5%;
-    margin: auto;
-}
-#listaMenu ul{
-    padding: 30px;
-}

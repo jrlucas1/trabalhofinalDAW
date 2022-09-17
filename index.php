@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="assets/css/login.css">
 
 <?php
 include_once('includes/componentes/cabecalho.php');
@@ -14,7 +15,7 @@ include_once('includes/logica/conecta.php');
 
 <main>
          <h2> Usuário Logado:  <?php echo $_SESSION['nome'];?>  </h2>
-
+<?php require('includes/componentes/footer.php');?>
          <h3> Listagem de Usuários </h3>
     <?php
         $usuarios = listarUsuario($conexao);
@@ -44,7 +45,6 @@ include_once('includes/logica/conecta.php');
         }
     ?>
 </main>
-<?php require('includes/componentes/footer.php');?>
 </body>
 <script type="text/javascript">
     function confirma_excluir()

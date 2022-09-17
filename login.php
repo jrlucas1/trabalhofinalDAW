@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="assets/css/login.css">
 <title>Login</title>
 </head>
 <body>
@@ -12,8 +12,8 @@
     <h1> Login </h1>  
 
     <form action="includes/logica/logica_pessoa.php" method="POST" >
-    <label for="email">Email </label><input type="text" name="email" id="email" > <br>
-    <label for="senha">Senha </label><input type="password" name="senha" id="senha"><br>
+    <label for="email">Email </label><input type="text" name="email" id="email" > 
+    <label for="senha">Senha </label><input type="password" name="senha" id="senha">
     <button type="submit" id='entrar' name='entrar' value="Entrar" class="btn btn-primary"> Entrar </button>
     </form> 
  
