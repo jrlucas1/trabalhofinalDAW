@@ -205,7 +205,7 @@ function pesquisarPessoaEmail($conexao,$array){
     }
 function alterarSenha($conexao, $array){
     try{
-        $query = $conexao->prepare("update pessoas set senha = ? where id = ?");
+        $query = $conexao->prepare("update pessoas set password = ? where id = ?");
         $resultado = $query->execute($array);
         return $resultado;
     }catch(PDOException $e) {
@@ -214,7 +214,7 @@ function alterarSenha($conexao, $array){
 }
 function esqueciSenha($conexao, $array){
     try{
-       $query = $conexao->prepare("INSERT into recuperacao (email, chave) values (?, ?)");
+       $query = $conexao->prepare("INSERT into senha (email, token) values (?, ?)");
        $resultado = $query->execute($array);
        return $resultado;
      }catch(PDOException $e) {
@@ -223,16 +223,18 @@ function esqueciSenha($conexao, $array){
 }
 function alterarPassword($conexao, $array){
     try{
-        $query = $conexao->prepare("update pessoas set senha = ? where email=?");
+        $query = $conexao->prepare("update pessoas set password = ? where email=?");
         $resultado = $query->execute($array);
         return $resultado;
+        var_dump($resultado);
+        die;
     }catch(PDOException $e) {
         echo 'Error: ' . $e->getMessage();
     }
 }
 function checkConf($conexao,$array){
     try {
-         $query = $conexao->prepare("SELECT COUNT(*) FROM recuperacao WHERE email=? and chave=?");
+         $query = $conexao->prepare("SELECT COUNT(*) FROM senha WHERE email=? and token=?");
 
          $resultado = $query->execute($array);
          
@@ -246,7 +248,7 @@ function checkConf($conexao,$array){
 
  function deleteConf($conexao, $array){
      try{
-        $query = $conexao->prepare("DELETE FROM recuperacao WHERE email = ? AND chave = ?");
+        $query = $conexao->prepare("DELETE FROM senha WHERE email = ? AND token = ?");
 
         $resultado = $query->execute($array);
         

@@ -11,7 +11,6 @@ include_once('includes/logica/conecta.php');
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $array = array($email, $senha);
     $retorno = alterarPassword($conexao, $array);
-    var_dump($retorno);
     if($retorno){
       $_SESSION['msg'] = "Sua senha foi alterada";
       header("Location:login.php");

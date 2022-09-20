@@ -25,7 +25,7 @@
     
         $id = $_POST['editar'];
         $array = array($id);
-        $pessoa=buscarPostagem($conexao, $array);
+        $postagem=buscarPostagem($conexao, $array);
         require_once('../../editarPostagem.php');
 }    
 

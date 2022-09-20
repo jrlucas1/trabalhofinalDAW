@@ -3,13 +3,11 @@
 <?php
  include_once('includes/componentes/cabecalho.php');
  include_once('includes/componentes/header.php');
-
-
 ?>
     <title>Alterar Usuário</title>
 </head>
 <body>
-
+<?php require('includes/componentes/footer.php');?>
 <main>
     <section>
     <form action="logica_pessoa.php" method="post">
@@ -21,6 +19,5 @@
         </form>
     </section>
 </main>
-<?php require('includes/componentes/footer.php');?>
 </body>
 </html>

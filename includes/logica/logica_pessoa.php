@@ -228,7 +228,7 @@
     if(isset($_POST['esqueciSenha'])){
     
         $email =  $_POST['email'];
-        $chave = sha1(uniqid( mt_rand(), true));
+        $token = sha1(uniqid( mt_rand(), true));
 
         $array1= array(md5($email));
         // vai pesquisar a pessoa pelo email para ver se existe no banco de dados;
@@ -236,10 +236,10 @@
 
         
         if($resultado){
-        $array = array($email, $chave);
+        $array = array($email, $token);
         $teste = esqueciSenha($conexao, $array);     
     
-        $link="<a href='localhost/atv1daw/recuperar.php?email=".$email."&conf=".$chave."'> Clique aqui para alterar sua senha </a>";
+        $link="<a href='localhost/trabalho/recuperar.php?email=".$email."&conf=".$token."'> Clique aqui para alterar sua senha </a>";
     
         $mensagem="Email para alteração de senha <br>".$link."</td></tr>";
         $assunto="Resetar a sua senha";

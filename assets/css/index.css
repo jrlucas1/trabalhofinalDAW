@@ -1,50 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
 body{
     background-color: rgb(101, 152, 163);
+    font-family: "Titillium Web", sans-serif;
 }
 
 h1, section{
     background-color: rgb(191, 237, 249);
-    margin: 0px;
     margin: auto;
     width: 55%;
+    padding: 30px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
 }
-
 
 ul{
     list-style-type: none;
     background-color: rgb(191, 237, 249);
     display: flex;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 ul li{
-    padding: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: auto;
 }
  li a{
     text-decoration: none;
-    padding: 5px 20px;
+    padding: 10px;
 }
-li a:hover{
+li:hover{
     background-color: rgb(141, 178, 187);
 }
-
+a:visited {
+    color: black;
+}
 
 #item5{
-display: inline;
-margin-top: 10px;
-margin-left: 400px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 #userList{
     background-color: rgb(191, 237, 249);
     display: inline-block;
+    margin-bottom: 1%;
+    margin-top: 1%;
 }
 
 #fazPostagem{
     margin: auto;
     padding: 30px;
-    display: flex;
-}
-
-#fazPostagem input{
-    display: inline;
+    display: block;
+   align-items: center;
 }

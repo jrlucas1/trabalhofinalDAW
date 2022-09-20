@@ -4,6 +4,7 @@
 </head>
 <body>
 <?php require('includes/componentes/header.php') ?>
+<?php require('includes/componentes/footer.php');?>
 <main>
     <section>
     <form action="includes/logica/logica_pessoa.php" method="post" enctype="multipart/form-data">
@@ -32,6 +33,5 @@
     <br><br>
     </section>
 </main>
-<?php require('includes/componentes/footer.php');?>
 </body>
 </html>
