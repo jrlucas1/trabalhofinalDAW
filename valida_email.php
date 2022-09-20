@@ -2,41 +2,32 @@
 session_start();
 include_once('includes/logica/funcoes_pessoa.php');
 include_once('includes/logica/conecta.php');
-if($_GET['h']){
-	$h=$_GET['h'];
-   	$_SESSION["msg"]=''; 
-	
+if ($_GET['h']) {
+    $h = $_GET['h'];
+    $_SESSION["msg"] = '';
 
-	$array = array($h);
 
-	$linha=pesquisarPessoaEmail($conexao,$array);
+    $array = array($h);
 
-	if($linha) // Se existir o código ele ira fazer a alteração do status para true no banco de dados;
-	{
+    $linha = pesquisarPessoaEmail($conexao, $array);
 
-		$array=array($linha['id']);
+    if ($linha) // Se existir o código ele ira fazer a alteração do status para true no banco de dados;
+    {
 
-		$retorno=alterarStatustrue($conexao, $array);
-		
-		if($retorno) // Se fizer essa alteração será enviada está mensagem
-		{
-			
-		
-			   $_SESSION["msg"]= "Cadastro Validado - Entre com seu email e senha";
+        $array = array($linha['id']);
 
-		}
-		else // Se não, será enviada essa mensagem.
-		{
-			   $_SESSION["msg"]= 'Problema na validação';
-			   
-		}	
-	}
+        $retorno = alterarStatustrue($conexao, $array);
 
-	else
-	{
-		$_SESSION["msg"]= 'Problema na validação';
-	}	
+        if ($retorno) // Se fizer essa alteração será enviada está mensagem
+        {
+            $_SESSION["msg"] = "Cadastro Validado - Entre com seu email e senha";
+        } else // Se não, será enviada essa mensagem.
+        {
+            $_SESSION["msg"] = 'Problema na validação';
+        }
+    } else {
+        $_SESSION["msg"] = 'Problema na validação';
+    }
 
-header("Location:login.php");
-	
+    header("Location:login.php");
 }

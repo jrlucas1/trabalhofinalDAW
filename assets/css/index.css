@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-body{
+body {
     background-color: rgb(101, 152, 163);
     font-family: "Titillium Web", sans-serif;
 }
 
-h1, section{
+h1,
+section {
     background-color: rgb(191, 237, 249);
     margin: auto;
     width: 55%;
@@ -14,44 +15,63 @@ h1, section{
     border-radius: 20px;
 }
 
-ul{
+ul {
     list-style-type: none;
     background-color: rgb(191, 237, 249);
     display: flex;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-ul li{
+ul li {
     padding-top: 1%;
     padding-bottom: 1%;
     margin: auto;
 }
- li a{
+
+li a {
     text-decoration: none;
     padding: 10px;
 }
-li:hover{
+
+li:hover {
     background-color: rgb(141, 178, 187);
 }
+
 a:visited {
     color: black;
 }
 
-#item5{
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
-#userList{
+#userList {
     background-color: rgb(191, 237, 249);
     display: inline-block;
     margin-bottom: 1%;
     margin-top: 1%;
 }
 
-#fazPostagem{
+#fazPostagem {
     margin: auto;
     padding: 30px;
     display: block;
-   align-items: center;
+    align-items: center;
+}
+
+#logout {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    #listaMenu {
+        display: block;
+    }
+
 }

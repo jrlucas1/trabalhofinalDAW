@@ -1,16 +1,18 @@
-#post_comments{
+#post_comments {
     margin-bottom: 1%;
 }
-.horario{
+
+.horario {
     display: inline;
     margin-right: 5%;
 }
-.local{
+
+.local {
     display: inline;
     margin-top: 10%;
     margin-right: 10%;
 }
 
-#comentarios{
+#comentarios {
     font-size: 13px;
 }

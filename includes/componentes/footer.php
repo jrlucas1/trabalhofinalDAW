@@ -6,10 +6,13 @@
                 <li id="item2"><a href="/trabalho/fazerPostagem.php">Adicionar Postagem</a></li>
                 <li id="item3"><a href="/trabalho/alterarPessoa.php">Alterar Perfil</a></li>
                 <li id="item4"><a href="/trabalho/esqueceuSenha.php">Alterar senha </a></li>                                   
-                <form action="includes/logica/logica_pessoa.php" method="post">
-                        <input type="submit" name="sair" value="Sair" id="item5">
-                </form>
-                </li>
+                <div id="logout">
+                        <span> Usuário Logado:  <?php echo $_SESSION['nome'];?>  </span>  
+                        <form action="includes/logica/logica_pessoa.php" method="post">
+                                <button type="submit" name="sair"> Sair </button>
+                        </form>
+                <div>    
+        </li>
         </ul>
 </nav>
 </html>

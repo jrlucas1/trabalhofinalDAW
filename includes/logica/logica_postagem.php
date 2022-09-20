@@ -17,17 +17,16 @@
         $array = array($idpessoa, $data, $horariosaida, $horariochegada, $preco, $idcarro, $conteudo, $cep, $bairro, $logradouro);
 
         $resultado = fazerPostagem($conexao, $array);
-   
         header('location:../../fazerPostagem.php');
     }
 
     if(isset($_POST['editar'])){
-    
+
         $id = $_POST['editar'];
         $array = array($id);
         $postagem=buscarPostagem($conexao, $array);
         require_once('../../editarPostagem.php');
-}    
+}
 
     if(isset($_POST['alterar'])){
 

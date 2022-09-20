@@ -1,12 +1,12 @@
 <?php
 session_start();
-if(!$_SESSION['logado'])
-{
-	header('location:login.php');
+if (!$_SESSION['logado']) {
+    header('location:login.php');
 }
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
