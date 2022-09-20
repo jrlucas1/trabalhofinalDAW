@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body{
-    background-color: rgb(101, 152, 163);
+    background-color: rgb(112, 162, 173);
+    text-align: center;
+    font-family: "Titillium Web", sans-serif;
 }
 #login{
   position: relative;
-  background: rgb(157, 235, 252);
+  background: rgb(191, 237, 249); 
   max-width: 360px;
   margin: 100px auto 100px auto ;
   padding: 35px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #login input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -28,9 +30,4 @@ body{
     padding: 5px;
     margin-top: 10px;
     border-radius: 10%;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('OpenSans-Regular.ttf') format('truetype');
 }

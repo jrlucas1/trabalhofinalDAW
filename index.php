@@ -16,7 +16,7 @@ include_once('includes/logica/conecta.php');
 <main>
          <h2> Usuário Logado:  <?php echo $_SESSION['nome'];?>  </h2>
 <?php require('includes/componentes/footer.php');?>
-         <h3> Listagem de Usuários </h3>
+         <h1> Listagem de Usuários </h1>
     <?php
         $usuarios = listarUsuario($conexao);
         if(empty($usuarios)){
@@ -29,9 +29,9 @@ include_once('includes/logica/conecta.php');
         foreach($usuarios as $usuario){
                  
             ?>
-                <section>
+                <section id="userList">
                     <p>Nome: <?php echo $usuario['nome']; ?></p>
-                    <p>Email <?php echo $usuario['email']; ?></p>
+                    <p>Email: <?php echo $usuario['email']; ?></p>
                     <p>Imagem: <img src="imagens/<?php echo $usuario['foto'];?>" width='100px' height='100px'/></p>
                     <p>ID: <?php echo $usuario['id']; ?></p>
                     

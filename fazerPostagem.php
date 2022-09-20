@@ -6,10 +6,11 @@
 <title>Realizar Postagem</title>
 </head>
 <body>
-
+<?php require('includes/componentes/footer.php');?>
 <main>
-    <section>
-</form>
+    
+    <section id="fazPostagem">
+    <h1> Fazer Postagem </h1>
 	<form action="includes/logica/logica_postagem.php" method="POST">
 	
 	<input type="hidden" name="idpessoa" value="<?php echo $_SESSION['id']?>"><br>
@@ -27,10 +28,7 @@
     <input type="submit" name="postar" value="postar" ><br>
 
 </form>
-<div id="carrega"></div>
-    </section>
 </main>
-<?php require('includes/componentes/footer.php');?>
 </body>
 <script src="assets/js/index.js"></script>
 </html>

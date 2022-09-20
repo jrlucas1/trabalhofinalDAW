@@ -7,7 +7,7 @@
                 <li id="item3"><a href="/trabalho/alterarPerfil.php">Alterar Perfil</a></li>
                 <li id="item4"><a href="/trabalho/esqueceuSenha.php">Alterar senha </a></li>                                   
                 <form action="includes/logica/logica_pessoa.php" method="post">
-                        <input type="submit" name="sair" value="Sair">
+                        <input type="submit" name="sair" value="Sair" id="item5">
                 </form>
                 </li>
         </ul>

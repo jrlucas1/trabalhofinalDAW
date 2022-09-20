@@ -1,12 +1,50 @@
 body{
     background-color: rgb(101, 152, 163);
 }
+
+h1, section{
+    background-color: rgb(191, 237, 249);
+    margin: 0px;
+    margin: auto;
+    width: 55%;
+}
+
+
 ul{
-    display: flex;
     list-style-type: none;
-    background-color: rgb(151, 204, 203);
+    background-color: rgb(191, 237, 249);
+    display: flex;
 }
 
 ul li{
+    padding: 10px;
+}
+ li a{
+    text-decoration: none;
+    padding: 5px 20px;
+}
+li a:hover{
+    background-color: rgb(141, 178, 187);
+}
+
+
+#item5{
+display: inline;
+margin-top: 10px;
+margin-left: 400px;
+}
+
+#userList{
+    background-color: rgb(191, 237, 249);
+    display: inline-block;
+}
+
+#fazPostagem{
+    margin: auto;
     padding: 30px;
+    display: flex;
+}
+
+#fazPostagem input{
+    display: inline;
 }
