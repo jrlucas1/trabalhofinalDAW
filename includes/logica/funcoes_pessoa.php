@@ -224,8 +224,6 @@ function alterarPassword($conexao, $array)
         $query = $conexao->prepare("update pessoas set password = ? where email=?");
         $resultado = $query->execute($array);
         return $resultado;
-        var_dump($resultado);
-        die;
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
     }

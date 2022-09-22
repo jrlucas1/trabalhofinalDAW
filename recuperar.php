@@ -7,7 +7,7 @@ $chave = $_GET['conf'];
 
 if (isset($_POST['novaSenha'])) {
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    $array = array($email, $senha);
+    $array = array($senha, $email);
     $retorno = alterarPassword($conexao, $array);
     if ($retorno) {
         $_SESSION['msg'] = "Sua senha foi alterada";

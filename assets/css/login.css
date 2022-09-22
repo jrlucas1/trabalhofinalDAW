@@ -1,49 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body {
-    background-color: rgb(112, 162, 173);
+    background-color:#29cabf;
     text-align: center;
     font-family: "Titillium Web", sans-serif;
 }
 
 #login {
     position: relative;
-    background: rgb(191, 237, 249);
+    background: #B4F0D9;
     max-width: 360px;
-    margin: 100px auto 100px auto;
-    padding: 35px;
+    margin: 6.25rem auto 6.25rem auto;
+    padding: 0.938rem;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 30px;
-    font-size: 23px;
+    border-radius: 1.875rem;
+    font-size: 1.438rem;
 }
 
-#login input {
+input {
     font-family: "Titillium Web", sans-serif;
     outline: 0;
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
+    margin: 0 0 0.938rem;
+    padding: 0.938rem;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 0.875rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 2.5px 2.5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 5px;
+    border-radius: 0.313rem;
     outline: none;
 
 }
 
 #login button {
-    padding: 10px;
+    padding: 0.600rem;
     margin-top: 5%;
-    border-radius: 10px;
-    font-size: 18;
+    border-radius: 0.625rem;
+    font-size: 1.125rem;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-a {
+a, a:visited{
     text-decoration: none;
-}
-
-a:visited {
     color: black;
 }
+
+
+
+
+

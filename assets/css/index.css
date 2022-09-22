@@ -1,25 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body {
-    background-color: rgb(101, 152, 163);
+    background-color: #29cabf;
     font-family: "Titillium Web", sans-serif;
+    font-size: 0.9rem;
 }
 
 h1,
 section {
-    background-color: rgb(191, 237, 249);
+    background-color: #B4F0D9;
     margin: auto;
     width: 55%;
-    padding: 30px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 20px;
+    padding: 1.875rem;
+    box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.2), 0 0.313rem 0.313rem 0 rgba(0, 0, 0, 0.24);
+
+}
+h1{
+    border-radius: 1.25rem 1.25rem 0px 0px;
 }
 
 ul {
     list-style-type: none;
-    background-color: rgb(191, 237, 249);
+    background-color: #B4F0D9;
     display: flex;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    align-items: center;
 }
 
 ul li {
@@ -30,7 +35,7 @@ ul li {
 
 li a {
     text-decoration: none;
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 li:hover {
@@ -40,19 +45,33 @@ li:hover {
 a:visited {
     color: black;
 }
+A:hover{
+    background-color: rgb(141, 178, 187);
+}
 
 #userList {
-    background-color: rgb(191, 237, 249);
+    background-color: #B4F0D9;
     display: inline-block;
     margin-bottom: 1%;
     margin-top: 1%;
 }
 
-#fazPostagem {
-    margin: auto;
-    padding: 30px;
-    display: block;
-    align-items: center;
+#fazPostagem{
+    text-align: center;
+}
+input{
+    font-family: "Titillium Web", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 0.938rem;
+    padding: 0.938rem;
+    box-sizing: border-box;
+    font-size: 0.875rem;
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.2), 0 2.5px 2.5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 0.313rem;
+    outline: none;
 }
 
 #logout {
@@ -61,17 +80,31 @@ a:visited {
     margin: 1rem;
 }
 
-button {
+.sair{
     background: none;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 0.2rem;
+    box-shadow: none;
+
+}
+
+button{
+    padding: 0.600rem;
+    margin-top: 5%;
+    border-radius: 0.625rem;
+    font-size: 1.125rem;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 @media only screen and (max-width: 600px) {
     #listaMenu {
         display: block;
     }
+    body{
+        font-size: 0.8rem;
+}
 
 }

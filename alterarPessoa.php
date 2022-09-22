@@ -3,6 +3,10 @@
 <?php
 include_once('includes/componentes/cabecalho.php');
 include_once('includes/componentes/header.php');
+include_once('includes/logica/funcoes_pessoa.php');
+include_once('includes/logica/conecta.php');
+$array = array($_SESSION['id']);
+$pessoa = buscarUsuario($conexao, $array);
 ?>
 <title>Alterar Usuário</title>
 </head>
@@ -14,7 +18,7 @@ include_once('includes/componentes/header.php');
             <form action="logica_pessoa.php" method="post">
                 <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome" value="<?php echo $pessoa['nome']; ?>"></p>
                 <p><label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $pessoa['email']; ?>"></p>
-                <input type="hidden" id='id' name='id' value="<?php echo $pessoa['id']; ?>">
+                <input type="hidden" id="id" name="id" value="<?php echo $_SESSION['id']; ?>">
                 <p> <input type="submit" id='alterar' name='alterar' value="Alterar">
                 </p>
             </form>

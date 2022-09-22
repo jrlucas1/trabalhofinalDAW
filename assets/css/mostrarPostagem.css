@@ -13,6 +13,16 @@
     margin-right: 10%;
 }
 
-#comentarios {
-    font-size: 13px;
+#comentarios{
+    text-align: center;
+}
+#comentarios p{
+    font-size: 0.813rem;
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    .horario, .local{
+        display: block;
+    }
 }
