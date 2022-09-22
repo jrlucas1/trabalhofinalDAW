@@ -14,7 +14,9 @@ $pessoa = buscarUsuario($conexao, $array);
 <body>
     <?php require('includes/componentes/footer.php'); ?>
     <main>
-        <section>
+    <h1> Alterar Perfil </h1>
+    <section>
+
             <form action="logica_pessoa.php" method="post">
                 <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome" value="<?php echo $pessoa['nome']; ?>"></p>
                 <p><label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $pessoa['email']; ?>"></p>

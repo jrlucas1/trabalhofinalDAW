@@ -13,18 +13,20 @@ section {
     width: 55%;
     padding: 1.875rem;
     box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.2), 0 0.313rem 0.313rem 0 rgba(0, 0, 0, 0.24);
-
 }
 h1{
     border-radius: 1.25rem 1.25rem 0px 0px;
+    margin-bottom: 1rem;
 }
 
 ul {
+
     list-style-type: none;
     background-color: #B4F0D9;
     display: flex;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     align-items: center;
+
 }
 
 ul li {
@@ -57,7 +59,7 @@ A:hover{
 }
 
 #fazPostagem{
-    text-align: center;
+    text-align: left;
 }
 input{
     font-family: "Titillium Web", sans-serif;
@@ -101,7 +103,7 @@ button{
 
 @media only screen and (max-width: 600px) {
     #listaMenu {
-        display: block;
+        flex-direction: column;
     }
     body{
         font-size: 0.8rem;

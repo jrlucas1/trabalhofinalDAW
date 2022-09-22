@@ -47,6 +47,11 @@ a, a:visited{
     color: black;
 }
 
+#mensagem{
+    color: red;
+    font: 1rem;
+}
+
 
 
 

@@ -8,7 +8,7 @@ include_once('includes/componentes/header.php');
 </head>
 
 <body>
-    <?php ?>
+    <?php require('includes/componentes/footer.php'); ?>
     <main>
         <section>
             <form action="includes/logica/logica_pessoa.php" method="post">
@@ -19,7 +19,6 @@ include_once('includes/componentes/header.php');
             </form>
         </section>
     </main>
-    <?php require('includes/componentes/footer.php'); ?>
 </body>
 
 </html>

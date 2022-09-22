@@ -49,13 +49,13 @@
         $array=array($id);
         deletarPostagem($conexao, $array);
 
-        header('Location:../../mostrarPostagem.php');
+        header('Location:../../index.php');
 }
     if(isset($_POST['pesquisar'])){
         $nome = $_POST['nome'];
         $array=array("%".$nome."%");
         $produtos=pesquisarPostagemPorNomePessoa($conexao, $array);
-        require_once('../../mostrarPostagem.php');
+        require_once('../../index.php');
     }
 
 ?>
