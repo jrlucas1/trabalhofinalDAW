@@ -1,7 +1,3 @@
-#post_comments {
-    margin-bottom: 1%;
-}
-
 .horario {
     display: inline;
     margin-right: 5%;
@@ -11,14 +7,21 @@
     display: inline;
     margin-top: 10%;
     margin-right: 10%;
+    margin-bottom: 30%;
+}
+
+#post_comments {
+    margin-bottom: 1%;
+
 }
 
 #comentarios{
-    text-align: center;
+    text-align: left;
 }
 #comentarios p{
     font-size: 0.813rem;
     display: block;
+    margin-bottom: 0.65rem;
 }
 
 @media only screen and (max-width: 600px) {

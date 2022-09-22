@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="../../assets/css/index.css">
 <html>
 <?php include_once('includes/componentes/cabecalho.php'); ?>
 

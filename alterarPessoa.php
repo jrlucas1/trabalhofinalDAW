@@ -14,15 +14,14 @@ $pessoa = buscarUsuario($conexao, $array);
 <body>
     <?php require('includes/componentes/footer.php'); ?>
     <main>
-    <h1> Alterar Perfil </h1>
-    <section>
+        <h1> Alterar Perfil </h1>
+        <section>
 
-            <form action="logica_pessoa.php" method="post">
+            <form action="includes/logica/logica_pessoa.php" method="post">
                 <p><label for="nome">Nome: </label><input type="text" name="nome" id="nome" value="<?php echo $pessoa['nome']; ?>"></p>
                 <p><label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $pessoa['email']; ?>"></p>
                 <input type="hidden" id="id" name="id" value="<?php echo $_SESSION['id']; ?>">
-                <p> <input type="submit" id='alterar' name='alterar' value="Alterar">
-                </p>
+                <button type="submit" id='alterar' name='alterar'>Alterar</button>
             </form>
         </section>
     </main>

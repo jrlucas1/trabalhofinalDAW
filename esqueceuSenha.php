@@ -10,9 +10,10 @@ include_once('includes/componentes/header.php');
 <body>
 <?php require('includes/componentes/footer.php'); ?>
     <main>
+        <h1>Alterar Senha</h1>
         <section>
             <form action="includes/logica/logica_pessoa.php" method="post">
-                <p><label for="email">Senha: </label><input type="password" name="senha" id="senha"></p>
+                <p><label for="email">Senha </label><input type="password" name="senha" id="senha"></p>
                 <input type="hidden" id='id' name='idusuarios' value="<?php echo $_SESSION['id']; ?>">
                 <p> <input type="submit" id='alterarSenha' name='alterarSenha' value="Alterar senha">
                 </p>
