@@ -1,7 +1,9 @@
 <html>
 <link rel="stylesheet" href="assets/css/index.css">
-<nav id="menu">
-        <ul id="listaMenu">
+<nav id="nav">
+    <a href="/" id="logo"> Piracaronas </a>
+    <button id="btn-mobile"> Menu</button>
+        <ul id="menu">
                 <li id="item1"><a href="/trabalho/index.php">Página Inicial</a></li>
                 <?php if(isset($_SESSION['logado'])){ ?>
                 <li id="item2"><a href="/trabalho/fazerPostagem.php">Adicionar Postagem</a></li>

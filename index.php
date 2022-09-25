@@ -31,7 +31,10 @@ include_once('includes/logica/funcoes_pessoa.php')
             $pessoapost = buscarUsuario($conexao, $array1);
         ?>
             <section id="post_comments">
-                <h2> <?php echo $pessoapost['nome']; ?> </h2>
+                <div id="headerpost">
+                    <img src="imagens/<?php echo $pessoapost['foto']; ?>" class="circle-image" />
+                    <h2> <?php echo $pessoapost['nome']; ?> </h2>
+                </div>
                 <p class="horario">Horario de saida: <?php echo $postagem['horariosaida']; ?></p>
                 <p class="horario">Horario de chegada: <?php echo $postagem['horariochegada']; ?></p>
                 <p class="horario">Preço: R$ <?php echo $postagem['preco']; ?></p>
@@ -54,8 +57,10 @@ include_once('includes/logica/funcoes_pessoa.php')
                         foreach ($comentarios as $comentario) {
                             $array2 = array($comentario['idpessoa']);
                             $usercomm = buscarUsuario($conexao, $array1);
-                    ?>
-                            <p><?php echo $usercomm['nome']; ?> disse:
+                    ?> <div id="commentheader">
+                                <img src="imagens/<?php echo $pessoapost['foto']; ?>" class="circle-image2" />
+                                <p><?php echo $usercomm['nome']; ?> disse:
+                            </div>
                             <p> <?php echo $comentario['conteudo']; ?> <?php } ?></p>
                             </p>
                 </div>
