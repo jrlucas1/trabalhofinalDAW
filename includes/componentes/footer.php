@@ -1,23 +1,29 @@
 <html>
 <link rel="stylesheet" href="assets/css/index.css">
-<nav id="nav">
-    <a href="/" id="logo"> Piracaronas </a>
-    <button id="btn-mobile"> Menu</button>
-        <ul id="menu">
-                <li id="item1"><a href="/trabalho/index.php">Página Inicial</a></li>
-                <?php if(isset($_SESSION['logado'])){ ?>
-                <li id="item2"><a href="/trabalho/fazerPostagem.php">Adicionar Postagem</a></li>
-                <li id="item3"><a href="/trabalho/alterarPessoa.php">Alterar Perfil</a></li>
-                <li id="item4"><a href="/trabalho/esqueceuSenha.php">Alterar senha </a></li>
+<body>
+<nav>
+        <div class="logo"> Piracaronas </div>
 
-                <div id="logout">
-                        <span> Usuário Logado:  <?php echo $_SESSION['nome'];?>  </span>
-                        <form action="includes/logica/logica_pessoa.php" method="post">
-                                <button type="submit" name="sair" class="sair"> Sair </button>
-                        </form>
+        <div class="menu-btn">
+            <i class="fa fa-bars fa-2x" onclick="menuShow()">-</i>
+        </div>
+
+        <ul>
+        <li><a href="/trabalho/index.php">Início</a></li>
+        <?php if(isset($_SESSION['logado'])){ ?>
+        <li><a href="/trabalho/fazerPostagem.php">Adicionar Postagem</a></li>
+        <li><a href="/trabalho/alterarPessoa.php">Alterar Perfil</a></li>
+        <li><a href="/trabalho/esqueceuSenha.php">Alterar Senha</a></li>
+        <li>
+            <div id="logout">
+                <form action="includes/logica/logica_pessoa.php" method="post">
+                    <button type="submit" name="sair" class="sair"> Sair </button>
+                </form>
                 <div>
-            <?php } ?>
         </li>
+        <?php }?>
         </ul>
 </nav>
+<script src="assets/js/validacao.js"></script>
+</body>
 </html>

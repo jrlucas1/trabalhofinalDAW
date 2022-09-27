@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     background: rgb(70, 246, 178);
     background: radial-gradient(circle, rgba(70, 246, 178, 1) 0%, rgba(151, 251, 213, 1) 50%, rgba(93, 237, 227, 1) 100%);
     font-family: "Titillium Web", sans-serif;
     font-size: 0.9rem;
-    padding: 10px;
-}
-
-ul {
-    margin: 0px;
-    padding: 10px;
 }
 
 h1,
@@ -33,12 +31,6 @@ h1 {
 
 a:visited {
     color: black;
-}
-
-a:hover,
-a:focus {
-    background-color: rgb(141, 178, 187);
-    color: #333;
 }
 
 input {
@@ -72,7 +64,7 @@ a {
     color: black;
 }
 
-.circle-image{
+.circle-image {
     width: 100px;
     height: 100px;
     background-image: url('http://strawberry-fest.org/wp-content/uploads/2012/01/Coca-Cola-logo.jpg');
@@ -82,7 +74,8 @@ a {
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
 }
-.circle-image2{
+
+.circle-image2 {
     width: 50px;
     height: 50px;
     background-image: url('http://strawberry-fest.org/wp-content/uploads/2012/01/Coca-Cola-logo.jpg');
@@ -97,38 +90,54 @@ a {
     color: red;
 }
 
-#nav {
+nav {
     display: flex;
-    justify-content: space-around;
+    height: 80px;
+    width: 100%;
     background-color: #B4F0D9;
-    margin-bottom: 1rem;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 50px 0 100px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
-#logo {
-    font-size: 1.5rem;
+nav .logo {
+    color: black;
+    font-size: 35px;
     font-weight: bold;
 }
 
-#menu {
+nav ul {
     display: flex;
-    list-style-type: none;
-    gap: 0.33rem;
+    flex-wrap: wrap;
+    list-style: none;
     align-items: center;
 }
 
-#menu a {
-    display: block;
-    padding: 0.33rem;
+nav ul li {
+    margin: 0 5px;
 }
 
-#logout{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+nav ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
-#btn-mobile {
+nav ul li a.active,
+nav ul li a:hover {
+    background: #ffc982;
+}
+
+nav .menu-btn i {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
     display: none;
 }
 
@@ -147,35 +156,52 @@ a {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 #commentheader {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 920px) {
+    nav .menu-btn i{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background-color: #B4F0D9;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    nav ul.open{
+        left: 0;
+    }
+    nav ul li{
+        width: 100%;
+        margin: 50px 0;
+    }
+    nav ul li a {
+        font-size: 23px;
+    }
+    nav ul li a.active,
+    nav ul li a:hover{
+        background: none;
+        color: #ffc982;
+    }
 }
 
 
 @media only screen and (max-width: 600px) {
-    #listaMenu {
-        flex-direction: column;
-    }
-
-    #btn-mobile {
-        display: block;
-    }
-
-    #menu {
-        display: none;
-    }
-
-    #nav.active #menu {
-        display: flex;
-    }
 
     section {
         font-size: 1rem;
     }
-
-
 }

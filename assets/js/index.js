@@ -26,3 +26,7 @@ window.onload = function(){
             ajax.open('GET', 'https://viacep.com.br/ws/'+cep.value+'/json');
             ajax.send();
     }
+
+    /* api  html5 cords + cep */
+    /* compartilhar a localização em tempo real */
+
