@@ -59,7 +59,7 @@ include_once('includes/logica/funcoes_pessoa.php')
                             $usercomm = buscarUsuario($conexao, $array1);
                     ?> <div id="commentheader">
                                 <img src="imagens/<?php echo $pessoapost['foto']; ?>" class="circle-image2" />
-                                <p><?php echo $usercomm['nome']; ?> disse:
+                                <h3><?php echo $usercomm['nome']; ?> disse: </h3>
                             </div>
                             <p> <?php echo $comentario['conteudo']; ?> <?php } ?></p>
                             </p>
